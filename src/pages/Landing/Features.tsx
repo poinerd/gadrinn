@@ -1,3 +1,6 @@
+import Card from '../../components/Card';
+import Container from '../../components/Container';
+
 export default function Features() {
   const features = [
     {
@@ -33,19 +36,23 @@ export default function Features() {
   ];
 
   return (
-    <section id="features" className="features">
-      <h2>Powerful Features</h2>
-      <p className="section-subtitle">Everything you need to create professional forms</p>
-      
-      <div className="features-grid">
-        {features.map((feature, index) => (
-          <div key={index} className="feature-card">
-            <div className="feature-icon">{feature.icon}</div>
-            <h3>{feature.title}</h3>
-            <p>{feature.description}</p>
-          </div>
-        ))}
-      </div>
+    <section id="features" className="py-20 sm:py-24 lg:py-32 bg-white">
+      <Container>
+        <div className="text-center mb-16">
+          <h2 className="section-title">Powerful Features</h2>
+          <p className="section-subtitle">Everything you need to create professional forms</p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <Card key={index}>
+              <div className="text-5xl mb-4">{feature.icon}</div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>
+              <p className="text-slate-600 leading-relaxed">{feature.description}</p>
+            </Card>
+          ))}
+        </div>
+      </Container>
     </section>
   );
 }
